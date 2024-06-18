@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "WhatsApp Webhook Interface";
+}
+
+<h1>WhatsApp Webhook Interface</h1>
+
+<div>
+    <h2>Received Messages</h2>
+    <ul id="messagesList">
+        @foreach (var message in Model.Messages)
+        {
+            <li>@message</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <h2>Send Message</h2>
+    <form id="sendMessageForm">
+        <div>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required />
+        </div>
+        <div>
+            <label for="messageBody">Message:</label>
+            <textarea id="messageBody" name="messageBody" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}
